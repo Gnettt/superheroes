@@ -13,7 +13,6 @@ class Hero(db.Model, SerializerMixin):
 
     hero_powers = db.relationship("HeroPower", back_populates="hero", cascade="all, delete")
 
-    # Prevent recursion: we skip nested relationships
     serialize_rules = ('-hero_powers.hero', '-hero_powers.power')
 
 
